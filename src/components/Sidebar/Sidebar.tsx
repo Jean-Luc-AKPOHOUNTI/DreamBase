@@ -7,7 +7,7 @@ const Sidebar: React.FC = () => {
   return (
     <aside className="h-screen w-64 bg-gradient-to-b from-neutral-800 to-orange-900 text-white flex flex-col py-8 px-4 shadow-lg">
       <div className="flex items-center gap-4 mb-10">
-        <img src={logo} alt="Logo DrumBase" className="w-8 h-8 mb-2 rounded-full shadow-lg bg-white object-contain" />
+        <img src={logo} alt="Logo DrumBase" className="w-8 h-8 rounded-full shadow-lg bg-white object-contain" />
         <div className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-orange-400 to-orange-600 bg-clip-text text-transparent select-none">
           DrumBase
         </div>

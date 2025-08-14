@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import MainLayout from './components/MainLayout/MainLayout';
 import Sidebar from './components/Sidebar/Sidebar';
