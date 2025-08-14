@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
+
 import MainLayout from './components/MainLayout/MainLayout';
 import Sidebar from './components/Sidebar/Sidebar';
 import HeroSection from './components/HeroSection/HeroSection';
+import Home from './components/Home/Home';
+import PlaylistList from './components/PlaylistList/PlaylistList';
+// Placeholder Favoris
+const Favoris = () => (
+  <section className="flex flex-1 items-center justify-center min-h-screen text-white text-2xl font-bold">Favoris à venir...</section>
+);
+
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activePage, setActivePage] = useState<'hero' | 'home' | 'playlists' | 'favoris'>('hero');
 
   return (
     <MainLayout>
@@ -25,7 +34,7 @@ function App() {
 
         {/* Sidebar slide-in */}
         <div className={`fixed top-0 left-0 h-full z-20 transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <Sidebar />
+          <Sidebar onNavigate={(page) => { setActivePage(page); setSidebarOpen(false); }} />
         </div>
 
         {/* Overlay pour fermer la sidebar */}
@@ -37,9 +46,12 @@ function App() {
           />
         )}
 
-        {/* HeroSection en full screen */}
+        {/* Affichage conditionnel selon la page */}
         <main className="w-full min-h-screen flex items-center justify-center">
-          <HeroSection />
+          {activePage === 'hero' && <HeroSection />}
+          {activePage === 'home' && <Home />}
+          {activePage === 'playlists' && <PlaylistList />}
+          {activePage === 'favoris' && <Favoris />}
         </main>
       </div>
     </MainLayout>
